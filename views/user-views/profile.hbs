@@ -1,0 +1,12 @@
+<h2>Welcome,{{user.username}}</h2>
+
+<a href="/add-food">Add a Dish</a><br>
+<a href="/add-location">Add a Location</a>
+<br><br>
+
+<hr>
+
+{{#each foods}}
+<p>{{this.name}}</p>
+<p>{{this.description}}</p>
+{{/each}}

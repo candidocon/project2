@@ -1,0 +1,20 @@
+<h2>Add a Dish</h2>
+
+
+<form action="/add-food" method="POST">
+
+  <label>Name:</label>
+  <input type="text" name="name">
+
+  <label>Description:</label>
+  <input type="text" name="description">
+
+  <label>Location:</label>
+  <select name="location">
+    {{#each locations}}
+    <option value="{{this._id}}">{{this.name}}</option>
+    {{/each}}
+  </select>
+  Dont see your location? <a href="/add-location">Add a Location</a>
+  <button>Save</button>
+</form>

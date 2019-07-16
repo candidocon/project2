@@ -1,0 +1,17 @@
+<div>
+  <h5>{{location.name}}</h5>
+  <p>Address:</p>
+  <p>{{location.streetAddress}} {{location.city}}, {{location.state}} {{location.zipCode}}</p>
+</div>
+<br>
+<br>
+<hr>
+{{#if foods}}
+{{#each foods}}
+<div class="food-div">
+  <p>{{this.name}}</p>
+  <p>{{this.description}}</p>
+  <a href="/food/{{this._id}}">view details</a>
+</div>
+{{/each}}
+{{/if}}
