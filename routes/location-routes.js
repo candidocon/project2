@@ -5,6 +5,7 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Location = require("../models/Location");
 const Food = require("../models/Food");
+const uploadCloud = require("../config/cloudinary.js");
 
 router.get("/all-locations", (req, res, next) => {
   Location.find()
@@ -20,13 +21,13 @@ router.get("/add-location", (req, res, next) => {
   res.render("location-views/add-location");
 });
 
-router.post("/add-location", (req, res, next) => {
+router.post("/add-location", uploadCloud.single("image"), (req, res, next) => {
   const name = req.body.name;
   const streetAddress = req.body.streetAddress;
   const city = req.body.city;
   const state = req.body.state;
   const zipCode = req.body.zipCode;
-  // const country = req.body.country;
+  const img = req.file.url;
   const status = "open";
   Location.create({
     name: name,
@@ -35,7 +36,8 @@ router.post("/add-location", (req, res, next) => {
     state: state,
     zipCode: zipCode,
     // country: country,
-    status: status
+    status: status,
+    pic: img
   })
     .then(() => {
       console.log("yay");

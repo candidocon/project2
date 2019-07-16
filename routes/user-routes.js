@@ -63,4 +63,28 @@ router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res, next) => {
     });
 });
 
+router.get(
+  "/profile/:userId",
+  ensureLogin.ensureLoggedIn(),
+  (req, res, next) => {
+    let userId = req.params.userId;
+    User.findById(userId)
+      .then(userInfo => {
+        Food.find({ owner: userId })
+          .then(foodFromThisUser => {
+            res.render("user-views/profile-others", {
+              thisUser: userInfo,
+              foods: foodFromThisUser
+            });
+          })
+          .catch(err => {
+            next(err);
+          });
+      })
+      .catch(err => {
+        next(err);
+      });
+  }
+);
+
 module.exports = router;

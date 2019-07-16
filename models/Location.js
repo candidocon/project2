@@ -9,7 +9,8 @@ const locationSchema = new Schema({
   zipCode: { type: Number }, // possible enum with all states
   // country: { type: String },
   food: [{ type: Schema.Types.ObjectId, ref: "Food" }],
-  status: { type: String, enum: ["open", "shutdown"] }
+  status: { type: String, enum: ["open", "shutdown"] },
+  pic: { type: String }
 });
 
 const Location = mongoose.model("Location", locationSchema);

@@ -5,6 +5,7 @@ const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Food = require("../models/Food");
 const Location = require("../models/Location");
+const uploadCloud = require("../config/cloudinary.js");
 
 router.get("/add-food", ensureLogin.ensureLoggedIn(), (req, res, next) => {
   Location.find()
@@ -16,14 +17,16 @@ router.get("/add-food", ensureLogin.ensureLoggedIn(), (req, res, next) => {
     });
 });
 
-router.post("/add-food", (req, res, next) => {
+router.post("/add-food", uploadCloud.single("image"), (req, res, next) => {
   const name = req.body.name;
   const description = req.body.description;
   const location = req.body.location;
-
+  const img = req.file.url;
+  // console.log(req.file.url);
   Food.create({
     name: name,
     description: description,
+    pic: img,
     location: location,
     owner: req.user._id
   })
@@ -57,15 +60,16 @@ router.get("/food/:foodId", (req, res, next) => {
     });
 });
 
-router.get("/location/:locationId", (req, res, next) => {
-  let locationId = req.params.locationId;
-  Location.findById(locationId)
-    .then(oneLocation => {
-      Food.find({ location: locationId })
-        .then(foodInThisLocation => {
-          res.render("location-views/location-show", {
-            location: oneLocation,
-            foods: foodInThisLocation
+router.get("/food/:foodId/edit", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  let foodId = req.params.foodId;
+  Food.findById(foodId)
+    .then(foodInfo => {
+      // if(/)
+      Location.findById(foodInfo.location)
+        .then(oneLocation => {
+          res.render("food-views/food-show", {
+            food: foodInfo,
+            location: oneLocation
           });
         })
         .catch(err => {

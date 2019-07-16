@@ -1,7 +1,7 @@
 <h2>{{food.name}}</h2>
 <p>{{food.description}}</p>
 <br>
-<br>
+<img src="{{food.pic}}" alt="{{food.name}}">
 <br>
 <hr>
 <h3>Location:</h3>
@@ -9,3 +9,6 @@
 <p>Address:</p>
 <p>{{location.streetAddress}} {{location.city}}, {{location.state}} {{location.zipCode}}</p>
 <a href="/location/{{location._id}}">view details</a>
+
+
+<a href="/profile/{{food.owner}}">creator</a>
