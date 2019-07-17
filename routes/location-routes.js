@@ -22,6 +22,7 @@ router.get("/add-location", (req, res, next) => {
 });
 
 router.post("/add-location", uploadCloud.single("image"), (req, res, next) => {
+  console.log(req.file);
   const name = req.body.name;
   const streetAddress = req.body.streetAddress;
   const city = req.body.city;

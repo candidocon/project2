@@ -20,4 +20,11 @@ a {
 .body-content {
   padding: 20px; }
 
+.user-pic {
+  width: 100px;
+  border-radius: 50px; }
+
+img {
+  max-width: -webkit-fill-available; }
+
 /*# sourceMappingURL=style.css.map */

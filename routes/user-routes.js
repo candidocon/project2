@@ -22,11 +22,12 @@ router.post("/signup", (req, res, next) => {
   User.create({
     username: theUsername,
     password: hashedPassWord,
-    email: email
+    email: email,
+    pic: "images/default-user-image.png"
   })
     .then(() => {
       console.log("yay");
-      res.redirect("/");
+      res.redirect("/profile");
     })
     .catch(err => {
       next(err);

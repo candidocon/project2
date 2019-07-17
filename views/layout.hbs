@@ -16,8 +16,8 @@
 <body>
   <nav>
     <div class="nav-wrapper">
-      {{!-- <a href="/" class="brand-logo"><img src="images/logo.png"></a> --}}
       <a href="/" class="brand-logo">Logo</a>
+      <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if user}}
         <li><a href="/profile"><i class="large material-icons">account_box</i></a></li>
@@ -29,21 +29,15 @@
       </ul>
     </div>
   </nav>
-
-  {{!-- <div class="navbar">
-    <div>
-      Logo
-    </div>
-    <div>
-      {{#if user}}
-      Hi, <a href="/profile">{{user.username}}</a>
-      <a href="/logout">Logout</a>
-      {{else}}
-      <a href="/signup">Sign Up</a>
-      <a href="/login">Log in</a>
-      {{/if}}
-    </div>
-  </div> --}}
+  <ul class="sidenav" id="mobile-nav">
+    {{#if user}}
+    <li><a href="/profile"><i class="large material-icons">account_box</i></a></li>
+    <li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
+    {{else}}
+    <a href="/signup" class="waves-effect waves-light btn">Sign Up</a>
+    <a href="/login" class="waves-effect waves-light btn">Log in</a>
+    {{/if}}
+  </ul>
   <div class="body-content container">
     {{{body}}}
   </div>

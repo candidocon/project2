@@ -1,5 +1,15 @@
-document.addEventListener('DOMContentLoaded', () => {
+// document.addEventListener(
+//   "DOMContentLoaded",
+//   () => {
+//     console.log("IronGenerator JS imported successfully!");
+//   },
+//   false
+// );
 
-  console.log('IronGenerator JS imported successfully!');
+document.addEventListener("DOMContentLoaded", function() {
+  var elems = document.querySelectorAll(".sidenav");
+  var instances = M.Sidenav.init(elems);
 
-}, false);
+  var elems = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems);
+});
