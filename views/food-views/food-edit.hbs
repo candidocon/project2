@@ -15,10 +15,12 @@
   <input type="file" name="image">
 
   <label>Location:</label>
+  <P></P>
 
   <select name="location">
+    <option value="{{food.location}}">No Change</option>
     {{#each locations}}
-    <option value="{{this._id}}">{{this.name}}</option>
+    <option value="{{this._id}}" {{#if this.selected}} selected {{/if}}>{{this.name}}</option>
     {{/each}}
   </select>
   Dont see your location? <a href="/add-location">Add a Location</a>

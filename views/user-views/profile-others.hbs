@@ -2,7 +2,23 @@
 
 <hr>
 
-{{#each foods}}
-<p>{{this.name}}</p>
-<p>{{this.description}}</p>
-{{/each}}
+{{#if foods}}
+<div class="row">
+  {{#each foods}}
+  <div class="col s12 m6">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{this.pic}}">
+      </div>
+      <div class="card-content">
+        <span class="card-title">{{this.name}}</span>
+        <p>{{this.description}}</p>
+      </div>
+      <div class="card-action">
+        <a href="/food/{{this._id}}">View Details</a>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+</div>
+{{/if}}

@@ -9,7 +9,8 @@ const userSchema = new Schema({
   followers: [{ type: Schema.Types.ObjectId, ref: "User" }],
   rating: { type: Number },
   following: [{ type: Schema.Types.ObjectId, ref: "User" }],
-  favoriteFood: [{ type: Schema.Types.ObjectId, ref: "Food" }]
+  favoriteFood: [{ type: Schema.Types.ObjectId, ref: "Food" }],
+  pic: { type: String }
 });
 
 const User = mongoose.model("User", userSchema);

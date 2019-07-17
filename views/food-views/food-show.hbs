@@ -12,3 +12,6 @@
 
 
 <a href="/profile/{{food.owner}}">creator</a>
+{{#if food.isowner}}
+<a href="food/{{food._id}}/edit">Edit</a>
+{{/if}}

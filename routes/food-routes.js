@@ -43,6 +43,9 @@ router.get("/food/:foodId", (req, res, next) => {
   let foodId = req.params.foodId;
   Food.findById(foodId)
     .then(foodInfo => {
+      if (foodInfo.owner === req.user._id) {
+        foodInfo.isowner = true;
+      }
       Location.findById(foodInfo.location)
         .then(oneLocation => {
           res.render("food-views/food-show", {
@@ -60,26 +63,62 @@ router.get("/food/:foodId", (req, res, next) => {
     });
 });
 
-router.get("/food/:foodId/edit", ensureLogin.ensureLoggedIn(), (req, res, next) => {
-  let foodId = req.params.foodId;
-  Food.findById(foodId)
-    .then(foodInfo => {
-      // if(/)
-      Location.findById(foodInfo.location)
-        .then(oneLocation => {
-          res.render("food-views/food-show", {
-            food: foodInfo,
-            location: oneLocation
+router.get(
+  "/food/:foodId/edit",
+  ensureLogin.ensureLoggedIn(),
+  (req, res, next) => {
+    let foodId = req.params.foodId;
+    Food.findById(foodId)
+      .then(foodInfo => {
+        if (foodInfo.owner === req.user._id) {
+          Location.find()
+            .then(allLocations => {
+              allLocations.forEach(eachLocation => {
+                if (eachLocation._id === foodInfo.location) {
+                  eachLocation.selected = true;
+                }
+              });
+              res.render("food-views/food-edit", {
+                food: foodInfo,
+                locations: allLocations
+              });
+            })
+            .catch(err => {
+              next(err);
+            });
+        }
+      })
+      .catch(err => {
+        console.log(err);
+        next(err);
+      });
+  }
+);
+
+router.post(
+  "/food/:foodId/edit",
+  ensureLogin.ensureLoggedIn(),
+  (req, res, next) => {
+    let foodId = req.params.foodId;
+    Food.findById(foodId)
+      .then(foodInfo => {
+        // if(/)
+        Location.findById(foodInfo.location)
+          .then(oneLocation => {
+            res.render("food-views/food-show", {
+              food: foodInfo,
+              location: oneLocation
+            });
+          })
+          .catch(err => {
+            next(err);
           });
-        })
-        .catch(err => {
-          next(err);
-        });
-    })
-    .catch(err => {
-      console.log(err);
-      next(err);
-    });
-});
+      })
+      .catch(err => {
+        console.log(err);
+        next(err);
+      });
+  }
+);
 
 module.exports = router;
