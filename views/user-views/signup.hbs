@@ -4,18 +4,19 @@
 <form action="/signup" method="POST">
 
   <label>Pick A Username</label>
-  <input type="text" name="username">
-
+  <div class="input-field col s6">
+    <input class="has-character-counter" type="text" data-length="10" maxlength="10" name="username">
+  </div>
 
   <label>Password</label>
-  <input type="text" name="password">
+  <input type="password" name="password">
 
 
   <label>Email</label>
   <input type="email" name="email">
 
 
-  <button class="btn waves-effect waves-light">Submit<i class="material-icons right">send</i></button>
+  <button class="btn waves-effect waves-light ">Submit<i class="material-icons right">send</i></button>
 </form>
 
 

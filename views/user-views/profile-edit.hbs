@@ -1,0 +1,22 @@
+<div class="row">
+  <div class="col center-column">
+    <form action="/profile/edit" method="POST" enctype="multipart/form-data">
+      <div class="input-field">
+        <input class="has-character-counter" type="text" data-length="10" maxlength="10" name="username"
+          value="{{user.username}}">
+      </div> <input name="email" type="text" value="{{user.email}}">
+      <input name="password" type="password">
+      <p> Current Picture:</p>
+      <img src="{{user.pic}}" class="circle responsive-img">
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Image</span>
+          <input type="file" name="image">
+        </div>
+        <div class="file-path-wrapper">
+          <input name="image" class="file-path validate" type="text">
+        </div>
+        <button class="waves-effect waves-light btn">Save</button>
+    </form>
+  </div>
+</div>

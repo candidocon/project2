@@ -30,3 +30,13 @@ a {
 img {
   max-width: -webkit-fill-available;
 }
+
+.container {
+  width: 90%;
+}
+
+.center-column {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}

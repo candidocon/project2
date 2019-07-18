@@ -12,13 +12,13 @@
   <label>picture:</label>
   <input type="file" name="image">
 
-  <label>Location:</label>
   <div class="input-field">
     <select name="location">
       {{#each locations}}
       <option value="{{this._id}}">{{this.name}}</option>
       {{/each}}
     </select>
+    <label>Location:</label>
   </div>
   <br>
   Dont see your location?

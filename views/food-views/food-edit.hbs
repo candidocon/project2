@@ -1,7 +1,7 @@
-<h2>Add a Dish</h2>
+<h2>Edit</h2>
 
 
-<form action="/add-food" method="POST" enctype="multipart/form-data">
+<form action="/food/{{food._id}}/edit" method="POST" enctype="multipart/form-data">
 
   <label>Name:</label>
   <input type="text" name="name" value="{{food.name}}">
@@ -15,14 +15,18 @@
   <input type="file" name="image">
 
   <label>Location:</label>
-  <P></P>
-
   <select name="location">
-    <option value="{{food.location}}">No Change</option>
     {{#each locations}}
     <option value="{{this._id}}" {{#if this.selected}} selected {{/if}}>{{this.name}}</option>
     {{/each}}
   </select>
-  Dont see your location? <a href="/add-location">Add a Location</a>
-  <button>Save</button>
+  Dont see your location? <a href="/add-location">Add a Location</a><br>
+  <button class="waves-effect waves-light btn">Save</button>
+</form>
+
+
+
+<form action="/food/{{food._id}}/delete" method="POST"
+  onsubmit="return confirm('Are you sure want to delete this dish?')" ;>
+  <button class=" waves-effect waves-light btn red">DELETE</button>
 </form>

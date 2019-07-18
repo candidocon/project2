@@ -1,7 +1,8 @@
 <div class="row">
-  <div class="col s12 m3">
-    <h2>{{user.username}}</h2>
-    <img src="{{user.pic}}" class="user-pic">
+  <div class="col s12 m3 center-align">
+    <h3>{{user.username}}</h3>
+    <img src="{{user.pic}}" class="circle resposive-img">
+    <a href="/profile/edit" class="waves-effect waves-light btn">Edit</a>
     <p>Followers: {{user.followers.lenght}}</p>
     <p>Following: {{user.fallowing.lenght}}</p>
     <a href="/add-food" class="waves-effect waves-light btn">Add a Dish</a>
@@ -11,7 +12,7 @@
     {{#if foods}}
     {{#each foods}}
     <div class="col s12 m6">
-      <div class="card">
+      <div class="card hoverable">
         <div class="card-image">
           <img src="{{#if this.pic}}{{this.pic}}{{else}}images/coming-soon.png{{/if}}">
         </div>
@@ -24,7 +25,6 @@
         </div>
         <div class="card-action" style=" display: flex; justify-content: space-around;">
           <a href="/food/{{this._id}}/edit">Edit</a>
-          <a href="/food/{{this._id}}/delete">Delete</a>
         </div>
       </div>
     </div>

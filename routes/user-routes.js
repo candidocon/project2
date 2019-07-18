@@ -5,6 +5,7 @@ const User = require("../models/User");
 const passport = require("passport");
 const ensureLogin = require("connect-ensure-login");
 const Food = require("../models/Food");
+const uploadCloud = require("../config/cloudinary.js");
 
 router.get("/signup", (req, res, next) => {
   res.render("user-views/signup");
@@ -23,7 +24,7 @@ router.post("/signup", (req, res, next) => {
     username: theUsername,
     password: hashedPassWord,
     email: email,
-    pic: "images/default-user-image.png"
+    pic: "/images/default-user-image.png"
   })
     .then(() => {
       console.log("yay");
@@ -63,6 +64,25 @@ router.get("/profile", ensureLogin.ensureLoggedIn(), (req, res, next) => {
       next(err);
     });
 });
+
+router.get("/profile/edit", ensureLogin.ensureLoggedIn(), (req, res, next) => {
+  res.render("user-views/profile-edit");
+});
+
+router.post("/profile/edit", uploadCloud.single("image"), (req, res, next) => {
+  req.body.pic = req.file.url;
+  User.findByIdAndUpdate(req.user._id, req.body)
+    .then(user => {
+      res.redirect("/profile");
+    })
+    .catch(err => {
+      console.log(err);
+      next(err);
+    });
+});
+
+
+
 
 router.get(
   "/profile/:userId",

@@ -22,7 +22,6 @@ router.post("/add-food", uploadCloud.single("image"), (req, res, next) => {
   const description = req.body.description;
   const location = req.body.location;
   const img = req.file.url;
-  // console.log(req.file.url);
   Food.create({
     name: name,
     description: description,
@@ -70,11 +69,11 @@ router.get(
     let foodId = req.params.foodId;
     Food.findById(foodId)
       .then(foodInfo => {
-        if (foodInfo.owner === req.user._id) {
+        if (foodInfo.owner.equals(req.user._id)) {
           Location.find()
             .then(allLocations => {
               allLocations.forEach(eachLocation => {
-                if (eachLocation._id === foodInfo.location) {
+                if (eachLocation._id.equals(foodInfo.location)) {
                   eachLocation.selected = true;
                 }
               });
@@ -97,22 +96,16 @@ router.get(
 
 router.post(
   "/food/:foodId/edit",
-  ensureLogin.ensureLoggedIn(),
+  uploadCloud.single("image"),
   (req, res, next) => {
     let foodId = req.params.foodId;
-    Food.findById(foodId)
+    console.log(req.body);
+    req.body.pic = req.file.url;;
+    console.log(req.body);
+
+    Food.findByIdAndUpdate(foodId, req.body)
       .then(foodInfo => {
-        // if(/)
-        Location.findById(foodInfo.location)
-          .then(oneLocation => {
-            res.render("food-views/food-show", {
-              food: foodInfo,
-              location: oneLocation
-            });
-          })
-          .catch(err => {
-            next(err);
-          });
+        res.redirect("/food/" + foodId);
       })
       .catch(err => {
         console.log(err);
@@ -120,5 +113,15 @@ router.post(
       });
   }
 );
+
+router.post("/food/:id/delete", (req, res, next) => {
+  Food.findByIdAndRemove(req.params.id)
+    .then(() => {
+      res.redirect("/profile");
+    })
+    .catch(err => {
+      next(err);
+    });
+});
 
 module.exports = router;
