@@ -2,11 +2,9 @@
   <div class="col s12 m3 center-align">
     <h4>{{thisUser.thisUsername}}</h4>
     <img src="{{thisUser.pic}}" class="circle resposive-img">
-    <a href="/profile/edit" class="waves-effect waves-light btn">Edit</a>
+    <a href="/user/follow" class="waves-effect waves-light btn">Follow</a>
     <p>Followers: {{thisUser.followers.lenght}}</p>
     <p>Following: {{thisUser.fallowing.lenght}}</p>
-    <a href="/add-food" class="waves-effect waves-light btn">Add a Dish</a>
-    <a href="/add-location" class="waves-effect waves-light btn">Add a Location</a>
   </div>
   <div class="col s12 m9">
     {{#if foods}}

@@ -1,26 +1,17 @@
-<h2>Login</h2>
+<div class="row">
+  <div class="col m2"></div>
+  <div class="col s12 m8">
+    <h2>Login</h2>
 
+    <form action="/login" method="POST">
+      <label>Your Username</label>
+      <input type="text" name="username">
 
+      <label>Password</label>
+      <input type="password" name="password">
 
-
-<form action="/login" method="POST">
-
-  <label>Your Username</label>
-  <input type="text" name="username">
-
-
-  <label>Password</label>
-  <input type="password" name="password">
-
-
-  <button class="btn waves-effect waves-light">LOG IN</button>
-</form>
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-{{!-- <a href="/auth/google">Log In With Google</a> --}}
+      <button class="btn waves-effect waves-light btn-large">Log in <i
+          class="material-icons right">account_box</i></button>
+    </form>
+  </div>
+</div>

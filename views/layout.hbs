@@ -16,11 +16,11 @@
 <body>
   <nav>
     <div class="nav-wrapper container">
-      <a href="/" class="brand-logo">Logo</a>
+      <a href="/" class="brand-logo">Best Dish</a>
       <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         {{#if user}}
-        <li><a href="/profile"><i class="large material-icons">account_box</i></a></li>
+        <li><a href="/profile"><i class="large material-icons">account_circle</i></a></li>
         <li><a href="/logout" class="waves-effect waves-light btn">Logout</a></li>
         {{else}}
         <a href="/signup" class="waves-effect waves-light btn">Sign Up</a>
@@ -41,11 +41,40 @@
   <div class="body-content container">
     {{{body}}}
   </div>
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Best Dish</h5>
+          <p class="grey-text text-lighten-4">Wherever you go, go for the best</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="white-text">Navigate</h5>
+          <ul>
+            <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
+            <li><a class="grey-text text-lighten-3" href="/profile">My profile</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+        © 2019 Copyright Candido Concepcion
+        <a class="grey-text text-lighten-4 right" href="#!"><i class="fab fa-github"></i></a>
+        <a class="grey-text text-lighten-4 right" href="#!"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+  </footer>
+
+
+
 
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
   <script src="/javascripts/script.js"></script>
+  <script src="https://kit.fontawesome.com/1e6c3ea2b3.js"></script>
 </body>
 
 </html>

@@ -1,28 +1,20 @@
-<h2>Sign up</h2>
+<div class="row">
+  <div class="col m2"></div>
+  <div class="col s12 m8">
+    <h2>Sign up</h2>
+    <form action="/signup" method="POST">
+      <label>Pick A Username</label>
+      <div class="input-field">
+        <input class="has-character-counter" type="text" data-length="10" maxlength="10" name="username">
+      </div>
 
+      <label>Password</label>
+      <input type="password" name="password">
 
-<form action="/signup" method="POST">
+      <label>Email</label>
+      <input type="email" name="email">
 
-  <label>Pick A Username</label>
-  <div class="input-field col s6">
-    <input class="has-character-counter" type="text" data-length="10" maxlength="10" name="username">
+      <button class="btn waves-effect waves-light btn-large">Submit<i class="material-icons right">send</i></button>
+    </form>
   </div>
-
-  <label>Password</label>
-  <input type="password" name="password">
-
-
-  <label>Email</label>
-  <input type="email" name="email">
-
-
-  <button class="btn waves-effect waves-light ">Submit<i class="material-icons right">send</i></button>
-</form>
-
-
-
-<br>
-<br>
-<br>
-<br>
-{{!-- <a href="/auth/google">Sign Up With Google</a> --}}
+</div>

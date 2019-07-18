@@ -18,11 +18,13 @@ a {
   margin: 0 20px; }
 
 .body-content {
-  padding: 20px; }
+  padding: 20px;
+  min-height: 90vh; }
 
-.user-pic {
-  width: 100px;
-  border-radius: 50px; }
+img.user-pic {
+  max-width: 150px;
+  margin: 0 auto;
+  display: block; }
 
 img {
   max-width: -webkit-fill-available; }
@@ -34,5 +36,12 @@ img {
   display: flex;
   flex-flow: column;
   align-items: center; }
+
+.footer-copyright a {
+  margin: 0 0.5rem;
+  font-size: 20px; }
+
+.nav-wrapper li a i.large {
+  font-size: 35px; }
 
 /*# sourceMappingURL=style.css.map */
