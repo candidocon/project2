@@ -1,18 +1,21 @@
-<div>
-  <h5>{{location.name}}</h5>
-  <img src="{{location.pic}}" alt="{{location.name}}">
-  <p>Address:</p>
-  <p>{{location.streetAddress}} {{location.city}}, {{location.state}} {{location.zipCode}}</p>
+<h5>{{location.name}}</h5>
+<div class="row">
+  <div class="col s12 m12 l6">
+    <img src="{{location.pic}}" alt="{{location.name}}">
+  </div>
+  <div class="col s12 m12 l6">
+    <p>Address:</p>
+    <p>{{location.streetAddress}} {{location.city}}, {{location.state}} {{location.zipCode}}</p>
+  </div>
 </div>
-<br>
-<br>
+
 <hr>
 
 {{#if foods}}
 <div class="row">
   {{#each foods}}
   <div class="col s12 m6">
-    <div class="card">
+    <div class="card hoverable">
       <div class="card-image">
         <img src="{{this.pic}}">
       </div>
@@ -28,11 +31,3 @@
   {{/each}}
 </div>
 {{/if}}
-
-
-
-{{!-- <div class="food-div">
-  <p>{{this.name}}</p>
-  <p>{{this.description}}</p>
-  <a href="/food/{{this._id}}">view details</a>
-</div> --}}
