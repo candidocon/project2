@@ -12,7 +12,7 @@
     {{#if foods}}
     {{#each foods}}
     <div class="col s12 m6">
-      <div class="card hoverable">
+      <div class="card hoverable medium">
         <div class="card-image">
           <img src="{{#if this.pic}}{{this.pic}}{{else}}images/coming-soon.png{{/if}}">
         </div>
@@ -20,7 +20,7 @@
           <span class="card-title">{{this.name}}</span>
           <p>{{this.description}}</p>
         </div>
-        <div class="card-action" style="text-align: center">
+        <div class="card-action" style="text-align: center; bottom: 50px;">
           <a href="/food/{{this._id}}">View Details</a>
         </div>
         <div class="card-action" style=" display: flex; justify-content: space-around;">

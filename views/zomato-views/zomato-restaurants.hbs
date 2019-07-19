@@ -1,0 +1,29 @@
+{{!-- {{#each restaurants}}
+<p>name: {{this.restaurant.name}}</p>
+<p>address:</p>
+<P>{{this.restaurant.location.address}} </P>
+<P>{{this.restaurant.location.city}} </P>
+<P>{{this.restaurant.location.zipcode}} </P>
+<img src="{{this.restaurant.featured_image}}">
+{{/each}} --}}
+<div class="row">
+  {{#each restaurants}}
+  <div class="col s12 m4">
+    <div class="card hoverable medium">
+      <div class="card-image">
+        <img
+          src="{{#if this.restaurant.featured_image}}{{this.restaurant.featured_image}}{{else}}images/coming-soon.png{{/if}}">
+      </div>
+      <div class="card-content">
+        <span class="card-title">{{this.restaurant.name}}</span>
+        <P>{{this.restaurant.location.address}} </P>
+        <P>{{this.restaurant.location.city}} {{this.restaurant.location.zipcode}} </p>
+      </div>
+      <div class="card-action" style="text-align: center">
+        <a href="/zomato/{{this.restaurant.id}}">View Details</a>
+      </div>
+
+    </div>
+  </div>
+  {{/each}}
+</div>

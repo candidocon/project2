@@ -1,2 +1,51 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<style>
+  .body-content.container {
+    width: 100%;
+    background-image: url(/images/map-background-light.png);
+    /* background-size: 100% 100%; */
+    background-repeat: no-repeat;
+    height: 100vh;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    max-width: 100%;
+    z-index: 1;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+  }
+
+  nav {
+    z-index: 2;
+    position: relative;
+  }
+
+
+  #center-div {
+    width: 50%;
+    height: 270px;
+    background-color: rgba(74, 74, 74, 0.6);
+    /* background-color: rgba(255, 255, 255, 0.6);*/
+    text-align: center;
+    color: white;
+  }
+
+  #center-div {
+    font-weight: bold;
+  }
+</style>
+<div id="center-div">
+  <h1>Best Dish</h1>
+  <h5>Wherever you go, go for the best</h5>
+  <p>An exciting new way to discover new food, while making sure to try the best of every place.</p>
+  {{#if user}}
+  {{!-- <a href="/profile"><i class="large material-icons">account_circle</i></a>
+  <a href="/logout" class="waves-effect waves-light btn">Logout</a> --}}
+  {{else}}
+  <a href="/signup" class="waves-effect waves-light btn">Sign Up</a>
+  <a href="/login" class="waves-effect waves-light btn">Log in</a>
+  {{/if}}
+</div>

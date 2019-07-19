@@ -1,0 +1,16 @@
+<div class="col s12 m4">
+  <div class="card hoverable medium">
+    <div class="card-image">
+      <img src="{{#if restaurant.featured_image}}{{restaurant.featured_image}}{{else}}images/coming-soon.png{{/if}}">
+    </div>
+    <div class="card-content">
+      <span class="card-title">{{restaurant.name}}</span>
+      <P>{{restaurant.location.address}} </P>
+      <P>{{restaurant.location.city}} {{restaurant.location.zipcode}} </p>
+    </div>
+    <div class="card-action" style="text-align: center">
+      <a href="/zomato/{{restaurant.id}}">View Details</a>
+    </div>
+
+  </div>
+</div>

@@ -3,15 +3,24 @@
   <div class="col s12 m8">
     <h2>Login</h2>
 
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" id="login-form">
       <label>Your Username</label>
       <input type="text" name="username">
 
       <label>Password</label>
       <input type="password" name="password">
 
-      <button class="btn waves-effect waves-light btn-large">Log in <i
-          class="material-icons right">account_box</i></button>
+      <input type="hidden" value="ee" name="latitude" id="latitude">
+      <input type="hidden" value="rr" name="longitude" id="longitude">
+
     </form>
+    <button class="btn waves-effect waves-light btn-large" id="login-btn">Log in <i
+        class="material-icons right">account_box</i></button>
   </div>
 </div>
+
+{{!-- <button id="try">Try It</button> --}}
+
+{{!-- <div id="mapholder"></div> --}}
+
+<script src="/javascripts/geolocation.js"></script>

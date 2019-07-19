@@ -21,7 +21,10 @@ router.post("/add-food", uploadCloud.single("image"), (req, res, next) => {
   const name = req.body.name;
   const description = req.body.description;
   const location = req.body.location;
-  const img = req.file.url;
+  const img = "";
+  if (req.file) {
+    img = req.file.url;
+  }
   Food.create({
     name: name,
     description: description,
@@ -99,9 +102,9 @@ router.post(
   uploadCloud.single("image"),
   (req, res, next) => {
     let foodId = req.params.foodId;
-    console.log(req.body);
-    req.body.pic = req.file.url;;
-    console.log(req.body);
+    if (req.file) {
+      req.body.pic = req.file.url;
+    }
 
     Food.findByIdAndUpdate(foodId, req.body)
       .then(foodInfo => {
