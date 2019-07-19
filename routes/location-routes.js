@@ -42,7 +42,7 @@ router.post("/add-location", uploadCloud.single("image"), (req, res, next) => {
   })
     .then(() => {
       console.log("yay");
-      res.redirect("/");
+      res.redirect("/all-locations");
     })
     .catch(err => {
       next(err);
