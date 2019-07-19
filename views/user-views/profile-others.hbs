@@ -1,10 +1,10 @@
 <div class="row">
   <div class="col s12 m3 center-align">
-    <h4>{{thisUser.thisUsername}}</h4>
+    <h4>{{thisUser.username}}</h4>
     <img src="{{thisUser.pic}}" class="circle resposive-img">
     <a href="/user/follow" class="waves-effect waves-light btn">Follow</a>
-    <p>Followers: {{thisUser.followers.lenght}}</p>
-    <p>Following: {{thisUser.fallowing.lenght}}</p>
+    <p>Followers: {{#if thisUser.followers}} {{user.followers.lengh}}{{else}}0{{/if}}</p>
+    <p>Following: {{#if thisUser.following}}{{user.following.lenght}}{{else}}0{{/if}}</p>
   </div>
   <div class="col s12 m9">
     {{#if foods}}

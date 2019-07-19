@@ -1,21 +1,24 @@
-{{#each locations}}
-<div class="card">
-  <div class="card-image">
-    <img src="{{this.pic}}">
-    <span class="card-title">{{this.name}}</span>
+<div class="row">
+  {{#each locations}}
+  <div class="s12 m6">
+    <div class="card">
+      <div class="card-image">
+        <img src="{{this.pic}}">
+        <span class="card-title">{{this.name}}</span>
+      </div>
+      <div class="card-content">
+        <p>Address:</p>
+        <p>{{this.streetAddress}} {{this.city}}, {{this.state}} {{this.zipCode}}</p>
+      </div>
+      <div class="card-action">
+        <a href="/location/{{this._id}}">view details</a>
+      </div>
+    </div>
   </div>
-  <div class="card-content">
-    <p>Address:</p>
-    <p>{{this.streetAddress}} {{this.city}}, {{this.state}} {{this.zipCode}}</p>
-  </div>
-  <div class="card-action">
-    <a href="/location/{{this._id}}">view details</a>
-  </div>
-</div>
-{{/each}}
+  {{/each}}
+  <div>
 
-
-{{!-- <div>
+    {{!-- <div>
   <h5>{{this.name}}</h5>
   <p>{{this.name}}</p>
   <p>Address:</p>
