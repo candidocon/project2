@@ -83,3 +83,16 @@ nav {
 .brand-logo {
   font-weight: bold;
 }
+
+#center-div {
+  width: 70%;
+  height: 270px;
+  background-color: rgba(74, 74, 74, 0.6);
+  /* background-color: rgba(255, 255, 255, 0.6);*/
+  text-align: center;
+  color: white;
+  padding: 0 10px;
+}
+#center-div h1 {
+  font-weight: bold;
+}
