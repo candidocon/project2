@@ -39,34 +39,34 @@ router.get("/login", (req, res, next) => {
   res.render("user-views/login");
 });
 
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    failureRedirect: "/login",
-    // successRedirect: "/profile",
-    failureFlash: true,
-    passReqToCallback: true
-  }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    console.log("=====lololol===");
-    console.log(req.body.latitude);
-    req.session.latitude = req.body.latitude;
-    req.session.longitude = req.body.longitude;
-    // console.log(req.user.latitude);
-    res.redirect("/profile");
-  }
-);
-
 // router.post(
 //   "/login",
 //   passport.authenticate("local", {
 //     failureRedirect: "/login",
-//     successRedirect: "/profile",
+//     // successRedirect: "/profile",
 //     failureFlash: true,
 //     passReqToCallback: true
-//   })
+//   }),
+//   function(req, res) {
+//     // Successful authentication, redirect home.
+//     console.log("=====lololol===");
+//     console.log(req.body.latitude);
+//     req.session.latitude = req.body.latitude;
+//     req.session.longitude = req.body.longitude;
+//     // console.log(req.user.latitude);
+//     res.redirect("/profile");
+//   }
 // );
+
+router.post(
+  "/login",
+  passport.authenticate("local", {
+    failureRedirect: "/login",
+    successRedirect: "/profile",
+    failureFlash: true,
+    passReqToCallback: true
+  })
+);
 
 router.get("/logout", (req, res, next) => {
   req.session.destroy();
