@@ -21,7 +21,7 @@ router.post("/add-food", uploadCloud.single("image"), (req, res, next) => {
   const name = req.body.name;
   const description = req.body.description;
   const location = req.body.location;
-  const img = "";
+  var img = "";
   if (req.file) {
     img = req.file.url;
   }
