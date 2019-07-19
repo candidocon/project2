@@ -34,7 +34,7 @@ router.post("/add-food", uploadCloud.single("image"), (req, res, next) => {
   })
     .then(() => {
       console.log("yay");
-      res.redirect("/");
+      res.redirect("/profile");
     })
     .catch(err => {
       next(err);

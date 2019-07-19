@@ -3,8 +3,8 @@
     <h3>{{user.username}}</h3>
     <img src="{{user.pic}}" class="circle resposive-img">
     <a href="/profile/edit" class="waves-effect waves-light btn">Edit</a>
-    <p>Followers: {{user.followers.lenght}}</p>
-    <p>Following: {{user.fallowing.lenght}}</p>
+    <p>Followers: {{#if user.followers}} {{user.followers.lengh}}{{else}}0{{/if}}</p>
+    <p>Following: {{#if user.following}}{{user.following.lenght}}{{else}}0{{/if}}</p>
     <p><a href="/add-food" class="waves-effect waves-light btn">Add a Dish</a></p>
     <p><a href="/add-location" class="waves-effect waves-light btn">Add a Location</a></p>
   </div>

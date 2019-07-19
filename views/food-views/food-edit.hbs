@@ -1,6 +1,8 @@
+{{!-- <div class="row">
+  <div class="col m2"></div>
+  <div class="col s12 m8">
+
 <h2>Edit</h2>
-
-
 <form action="/food/{{food._id}}/edit" method="POST" enctype="multipart/form-data">
 
   <label>Name:</label>
@@ -30,3 +32,59 @@
   onsubmit="return confirm('Are you sure want to delete this dish?')" ;>
   <button class=" waves-effect waves-light btn red">DELETE</button>
 </form>
+
+ --}}
+
+
+
+
+
+<div class="row">
+  <div class="col m2"></div>
+  <div class="col s12 m8">
+    <h2>Add a Dish</h2>
+    <form action="/food/{{food._id}}/edit" method="POST" enctype="multipart/form-data">
+
+      <label>Name:</label>
+      <input type="text" name="name" value="{{food.name}}">
+
+      <label>Description:</label>
+      <input type="text" name="description" value="{{food.description}}">
+
+      <label>picture:</label>
+      <img src="{{food.pic}}">
+      <p>Replace it:</p>
+      <div class="file-field input-field">
+        <div class="btn grey">
+          <span>Image</span><i class="material-icons right">add_a_photo</i>
+          <input type="file" name="image">
+        </div>
+        <div class="file-path-wrapper">
+          <input name="image" class="file-path validate" type="text">
+        </div>
+      </div>
+      <div class="input-field">
+        <select name="location">
+          {{#each locations}}
+          <option value="{{this._id}}" {{#if this.selected}} selected {{/if}}>{{this.name}}</option>
+          {{/each}}
+        </select>
+        <label>Location:</label>
+      </div>
+      <p> Dont see your location? <a href="/add-location">Add a Location</a></p>
+      <br>
+      <button class="waves-effect waves-light btn">Submit</button>
+
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col m2"></div>
+  <div class="col s12 m8">
+    <form action="/food/{{food._id}}/delete" method="POST"
+      onsubmit="return confirm('Are you sure want to delete this dish?')" ;>
+      <button class=" waves-effect waves-light btn red">DELETE</button>
+    </form>
+  </div>
+</div>
