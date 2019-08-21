@@ -93,8 +93,10 @@ router.get("/profile/edit", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 });
 
 router.post("/profile/edit", uploadCloud.single("image"), (req, res, next) => {
+  let userInfo = { ...req.body };
+
   if (req.file) {
-    req.body.pic = req.file.url;
+    userInfo.pic = req.file.url;
   }
   User.findByIdAndUpdate(req.user._id, req.body)
     .then(user => {
