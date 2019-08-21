@@ -94,6 +94,12 @@ router.get("/profile/edit", ensureLogin.ensureLoggedIn(), (req, res, next) => {
 
 router.post("/profile/edit", uploadCloud.single("image"), (req, res, next) => {
   let userInfo = { ...req.body };
+  if (req.body.password) {
+    const thePassword = req.body.password;
+    const salt = bcrypt.genSaltSync(12);
+    const hashedPassWord = bcrypt.hashSync(thePassword, salt);
+    userInfo.password = hashedPassWord;
+  }
 
   if (req.file) {
     userInfo.pic = req.file.url;
